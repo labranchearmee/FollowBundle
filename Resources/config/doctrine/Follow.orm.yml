@@ -1,0 +1,28 @@
+Brickstorm\FollowBundle\Entity\Follow:
+  type: entity
+  table: bsrm_follow
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    follow_model:
+      type: string
+      length: 30
+    follow_id:
+      type: integer
+    created_at:
+      type: date
+      gedmo:
+        timestampable:
+          on: create
+  manyToOne:
+    user:
+      nullable: true
+      targetEntity: Application\Sonata\UserBundle\Entity\User
+      joinColumns:
+        user_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }
