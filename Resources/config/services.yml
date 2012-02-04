@@ -1,0 +1,8 @@
+parameters:
+    follow_manager.class:      Brickstorm\FollowBundle\Manager\FollowManager
+    follow_manager.object:     object
+
+services:
+    follow_manager:
+        class:        %follow_manager.class%
+        arguments:    [%follow_manager.object%, @doctrine.orm.default_entity_manager]

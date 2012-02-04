@@ -4,8 +4,6 @@ namespace Brickstorm\FollowBundle\Manager;
 
 use Application\Sonata\UserBundle\Entity\User;
 
-use Doctrine\ORM\EntityManager;
-
 //use Brickstorm\FollowBundle\Entity\Follow;
 
 class FollowManager
@@ -14,8 +12,11 @@ class FollowManager
     protected $model    = null;
     protected $id       = null;
 
-    public function __construct($object, EntityManager $em){
+    public function __construct($object, $em){
       $this->em     = $em;
+    }
+
+    public function init($object){
       $this->model  = get_class($object);
       $this->id     = $object->getId();
     }
